@@ -12,18 +12,22 @@ const app = new Vue(
         },
         methods: {
             prv: function () {
-                if (counter > 0) {
-                    this.counter -= 1;
-
+                this.counter -= 1;
+                if (this.counter < 0) {
+                    this.counter = this.images.length - 1;
                 }
             },
             nxt: function () {
-                if (counter < 0) {
-                    this.counter += 1;
-    
-                }
+                this.counter += 1;
+                this.counter += 1;
+                if (this.counter > this.images.length - 1) {
+                    this.counter = 0;
+                }    
+                
             }
 
         }
     }
 ); 
+
+
